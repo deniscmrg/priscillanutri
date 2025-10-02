@@ -10,6 +10,25 @@
 
     gtag('config', 'AW-17577152695');
   </script>
+  <!-- Event snippet for Contato (1) conversion page
+  In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+  <script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-17577152695/z0o4CMjM6aUbELehuL1B',
+        'value': 1.0,
+        'currency': 'BRL',
+        'event_callback': callback
+    });
+    return false;
+  }
+  </script>
+
   <!-- Google Tag Manager 
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -215,9 +234,14 @@
 </section>
 
 
-<a href="https://wa.me/5519981016105" class="whatsapp-float" target="_blank" aria-label="Converse comigo no WhatsApp">
+<a href="https://wa.me/5519981016105"
+   onclick="return gtag_report_conversion('https://wa.me/5519981016105')"
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="Converse comigo no WhatsApp">
   <img src="img/wpp.png" alt="WhatsApp">
 </a>
+
 
 
 </body>
